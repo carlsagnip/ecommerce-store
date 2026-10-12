@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Maison Luxe — Curated Home Essentials",
+  title: "DRAFT — Curated Home Essentials",
   description:
     "Discover curated home essentials crafted with intention. Modern design meets artisan tradition. Shop handcrafted ceramics, premium textiles, and sustainable home decor.",
   keywords: [

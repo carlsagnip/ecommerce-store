@@ -59,7 +59,7 @@ export function NewsletterSection() {
           Stay Connected
         </p>
         <h2 className="text-3xl sm:text-4xl font-light text-[#2D3439] tracking-tight mb-4">
-          Join the Maison Family
+          DRAFT
         </h2>
         <p className="text-[#2D3439]/60 font-light mb-8 max-w-md mx-auto">
           Subscribe for exclusive access to new collections, styling tips, and

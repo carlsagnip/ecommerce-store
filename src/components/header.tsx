@@ -71,10 +71,10 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <span className="text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#2D3439] uppercase">
-                Maison
+                DRAFT
               </span>
               <span className="hidden sm:inline text-2xl lg:text-3xl font-extralight tracking-[0.15em] text-[#8B92AC]">
-                Luxe
+                test
               </span>
             </Link>
 
@@ -249,9 +249,8 @@ export function Header() {
 
         {/* Search Bar */}
         <div
-          className={`overflow-hidden transition-all duration-300 ${
-            searchOpen ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={`overflow-hidden transition-all duration-300 ${searchOpen ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
           <div className="max-w-2xl mx-auto px-4 pb-4">
             <div className="relative">
@@ -266,9 +265,8 @@ export function Header() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            mobileMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
           <nav className="px-4 pb-4 space-y-1">
             {navLinks.map((link) => (

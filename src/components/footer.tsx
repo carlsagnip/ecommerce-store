@@ -39,11 +39,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <span className="text-xl font-light tracking-[0.15em] uppercase">
-                Maison
-              </span>
-              <span className="text-xl font-extralight tracking-[0.15em] text-[#8B92AC]">
-                {" "}
-                Luxe
+                DRAFT
               </span>
             </Link>
             <p className="text-sm text-[#F5F5F0]/50 leading-relaxed mb-6 max-w-xs">
@@ -90,7 +86,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[#F5F5F0]/30">
-            &copy; {new Date().getFullYear()} Maison Luxe. All rights reserved.
+            &copy; {new Date().getFullYear()} DRAFT.
           </p>
           <div className="flex items-center gap-6">
             {["Visa", "Mastercard", "Apple Pay", "PayPal"].map((method) => (
