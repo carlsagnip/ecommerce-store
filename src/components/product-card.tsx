@@ -135,11 +135,11 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="flex items-center gap-2">
           <span className="text-base font-semibold text-[#2D3439]">
-            ${product.price.toFixed(2)}
+            ₱{product.price.toLocaleString("en-PH")}
           </span>
           {product.original_price && (
             <span className="text-sm text-[#8B92AC] line-through">
-              ${product.original_price.toFixed(2)}
+              ₱{product.original_price.toLocaleString("en-PH")}
             </span>
           )}
         </div>

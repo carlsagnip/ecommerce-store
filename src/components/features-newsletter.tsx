@@ -7,23 +7,23 @@ import { Truck, Shield, RefreshCw, Headphones } from "lucide-react";
 const features = [
   {
     icon: Truck,
-    title: "Free Shipping",
-    description: "Complimentary shipping on all orders over $150",
+    title: "White-Glove Delivery",
+    description: "Professional in-home delivery and assembly available",
   },
   {
     icon: Shield,
-    title: "Secure Checkout",
-    description: "Your data is protected with 256-bit encryption",
+    title: "Secure 50% Deposit",
+    description: "Pay half now, balance before delivery",
   },
   {
     icon: RefreshCw,
-    title: "Easy Returns",
-    description: "30-day hassle-free return policy",
+    title: "Made to Order",
+    description: "Custom sizing, wood, and finish to your specs",
   },
   {
     icon: Headphones,
-    title: "Expert Support",
-    description: "Dedicated styling consultants ready to help",
+    title: "Lifetime Support",
+    description: "Care guidance and refinishing for every piece",
   },
 ];
 
@@ -59,11 +59,11 @@ export function NewsletterSection() {
           Stay Connected
         </p>
         <h2 className="text-3xl sm:text-4xl font-light text-[#2D3439] tracking-tight mb-4">
-          DRAFT
+          Join the RSF Family
         </h2>
         <p className="text-[#2D3439]/60 font-light mb-8 max-w-md mx-auto">
-          Subscribe for exclusive access to new collections, styling tips, and
-          member-only offers.
+          Subscribe for first access to new pieces, workshop stories, and
+          exclusive offers from RSF The Craftsman.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
           <Input

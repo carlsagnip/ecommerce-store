@@ -15,15 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DRAFT — Curated Home Essentials",
+  title: "RSF The Craftsman — Where Comfort Meets Craft",
   description:
-    "Discover curated home essentials crafted with intention. Modern design meets artisan tradition. Shop handcrafted ceramics, premium textiles, and sustainable home decor.",
+    "Handcrafted furniture built for timeless living. Shop beds, doors, and custom pieces from RSF The Craftsman. Filipino craftsmanship, made to order.",
   keywords: [
-    "home decor",
-    "luxury furniture",
-    "artisan ceramics",
-    "sustainable design",
-    "modern interiors",
+    "handcrafted furniture",
+    "custom bed frames",
+    "Filipino furniture",
+    "RSF The Craftsman",
+    "made to order furniture",
   ],
 };
 

@@ -3,30 +3,28 @@ import { Separator } from "@/components/ui/separator";
 
 const footerLinks = {
   Shop: [
-    { name: "New Arrivals", href: "/new-arrivals" },
-    { name: "Best Sellers", href: "/best-sellers" },
-    { name: "Collections", href: "/collections" },
-    { name: "Sale", href: "/sale" },
-    { name: "Gift Cards", href: "/gift-cards" },
+    { name: "All Furniture", href: "/shop" },
+    { name: "Beds", href: "/shop?cat=beds" },
+    { name: "Doors", href: "/shop?cat=doors" },
+    { name: "Living Room", href: "/shop?cat=living-room" },
+    { name: "Accessories", href: "/shop?cat=accessories" },
+  ],
+  Services: [
+    { name: "Custom Quote", href: "/custom-quote" },
+    { name: "White-Glove Delivery", href: "/delivery" },
+    { name: "Track Order", href: "/track-order" },
+    { name: "Care & Maintenance", href: "/care" },
   ],
   Company: [
-    { name: "About Us", href: "/about" },
-    { name: "Our Story", href: "/story" },
-    { name: "Sustainability", href: "/sustainability" },
-    { name: "Careers", href: "/careers" },
-    { name: "Press", href: "/press" },
-  ],
-  Support: [
+    { name: "About RSF", href: "/about" },
+    { name: "Our Craft", href: "/about#craft" },
     { name: "Contact Us", href: "/contact" },
     { name: "FAQ", href: "/faq" },
-    { name: "Shipping & Returns", href: "/shipping" },
-    { name: "Size Guide", href: "/size-guide" },
-    { name: "Track Order", href: "/track" },
   ],
   Legal: [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookies" },
+    { name: "Return Policy", href: "/returns" },
   ],
 };
 
@@ -39,15 +37,15 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <span className="text-xl font-light tracking-[0.15em] uppercase">
-                DRAFT
+                RSF The Craftsman
               </span>
             </Link>
             <p className="text-sm text-[#F5F5F0]/50 leading-relaxed mb-6 max-w-xs">
-              Curated home essentials crafted with intention. Where modern
-              design meets artisan tradition.
+              Where comfort meets craft. Handcrafted furniture built for
+              timeless living — made to order in the Philippines.
             </p>
             <div className="flex gap-4">
-              {["Instagram", "Pinterest", "Twitter"].map((social) => (
+              {["Instagram", "Facebook", "TikTok"].map((social) => (
                 <a
                   key={social}
                   href="#"
@@ -86,10 +84,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[#F5F5F0]/30">
-            &copy; {new Date().getFullYear()} DRAFT.
+            &copy; {new Date().getFullYear()} RSF The Craftsman.
           </p>
           <div className="flex items-center gap-6">
-            {["Visa", "Mastercard", "Apple Pay", "PayPal"].map((method) => (
+            {["GCash", "BPI", "BDO", "Cash on Delivery"].map((method) => (
               <span
                 key={method}
                 className="text-xs text-[#F5F5F0]/25 tracking-wider"

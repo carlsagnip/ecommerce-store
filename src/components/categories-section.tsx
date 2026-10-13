@@ -4,12 +4,10 @@ import { mockCategories } from "@/lib/mock-data";
 import { ArrowRight } from "lucide-react";
 
 const categoryImages: Record<string, string> = {
-  "living-room": "/products/vase.png",
-  bedroom: "/products/bedding.png",
-  kitchen: "/products/dinnerware.png",
-  office: "/products/table.png",
-  outdoor: "/products/rug.png",
-  lighting: "/products/pendant.png",
+  beds: "/products/reyna-bed.jpg",
+  doors: "/products/aurelia-door.jpg",
+  "living-room": "/products/tv-rack.jpg",
+  accessories: "/products/bench.png",
 };
 
 export function CategoriesSection() {
@@ -45,7 +43,7 @@ export function CategoriesSection() {
                 } overflow-hidden`}
               >
                 <img
-                  src={categoryImages[category.slug] || "/products/vase.png"}
+                  src={categoryImages[category.slug] || "/products/reyna-bed.jpg"}
                   alt={category.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

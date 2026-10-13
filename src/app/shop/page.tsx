@@ -26,20 +26,18 @@ import {
 
 const categories = [
   "All",
+  "Beds",
+  "Doors",
   "Living Room",
-  "Bedroom",
-  "Kitchen",
-  "Office",
-  "Outdoor",
-  "Lighting",
+  "Accessories",
 ];
 const priceRanges = [
   { label: "All Prices", min: 0, max: Infinity },
-  { label: "Under $50", min: 0, max: 50 },
-  { label: "$50 - $100", min: 50, max: 100 },
-  { label: "$100 - $250", min: 100, max: 250 },
-  { label: "$250 - $500", min: 250, max: 500 },
-  { label: "Over $500", min: 500, max: Infinity },
+  { label: "Under ₱5,000", min: 0, max: 5000 },
+  { label: "₱5,000 – ₱10,000", min: 5000, max: 10000 },
+  { label: "₱10,000 – ₱30,000", min: 10000, max: 30000 },
+  { label: "₱30,000 – ₱50,000", min: 30000, max: 50000 },
+  { label: "Over ₱50,000", min: 50000, max: Infinity },
 ];
 
 export default function ShopPage() {
@@ -111,11 +109,11 @@ export default function ShopPage() {
                 Browse
               </p>
               <h1 className="text-4xl sm:text-5xl font-light text-[#F5F5F0] tracking-tight">
-                Our Collection
+                Our Furniture
               </h1>
               <p className="text-[#F5F5F0]/50 font-light mt-4 max-w-md mx-auto">
-                Discover handcrafted pieces that blend modern aesthetics with
-                timeless elegance.
+                Handcrafted pieces built for timeless living — beds, doors,
+                and custom furniture made to order.
               </p>
             </div>
           </div>

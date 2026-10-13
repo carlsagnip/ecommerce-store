@@ -1,33 +1,37 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    title: "Spring Collection",
-    subtitle: "2024",
+    title: "Where Comfort Meets Craft",
+    subtitle: "RSF The Craftsman",
     description:
-      "Curated pieces inspired by nature's palette. Organic forms, earthy textures, and timeless elegance.",
-    cta: "Explore Collection",
+      "Discover our handcrafted furniture pieces — built for timeless living.",
+    cta: "Shop Collection",
+    ctaHref: "/shop",
     image: "/hero.png",
   },
   {
-    title: "New Arrivals",
-    subtitle: "Just In",
+    title: "The Reyna Bed",
+    subtitle: "Signature Series",
     description:
-      "Discover our latest handcrafted home decor — where artisan tradition meets modern design.",
-    cta: "Shop New Arrivals",
-    image: "/products/rug.png",
+      "Our flagship bed frame — tufted upholstered headboard in rich walnut. Where you rest matters.",
+    cta: "View Details",
+    ctaHref: "/shop",
+    image: "/products/reyna-bed.jpg",
   },
   {
-    title: "The Artisan Edit",
-    subtitle: "Handmade",
+    title: "Made to Order",
+    subtitle: "Custom Furniture",
     description:
-      "Each piece tells a story. Crafted by skilled artisans using time-honored techniques.",
-    cta: "View Edit",
-    image: "/products/vase.png",
+      "Every piece is built by hand. Choose your wood, size, and finish — starting at ₱6,500.",
+    cta: "Get a Quote",
+    ctaHref: "/custom-quote",
+    image: "/products/intarsia-bed.jpg",
   },
 ];
 
@@ -96,13 +100,15 @@ export function HeroSection() {
             <p className="text-[#F5F5F0]/70 text-lg font-light leading-relaxed mb-8 max-w-md">
               {slide.description}
             </p>
-            <Button
-              size="lg"
-              className="bg-[#F5F5F0] text-[#2D3439] hover:bg-[#B0B597] hover:text-[#2D3439] tracking-[0.1em] uppercase text-xs px-10 py-6 rounded-none group transition-all duration-300"
-            >
-              {slide.cta}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href={slide.ctaHref}>
+              <Button
+                size="lg"
+                className="bg-[#F5F5F0] text-[#2D3439] hover:bg-[#B0B597] hover:text-[#2D3439] tracking-[0.1em] uppercase text-xs px-10 py-6 rounded-none group transition-all duration-300"
+              >
+                {slide.cta}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

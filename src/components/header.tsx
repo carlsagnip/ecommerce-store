@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
   Sheet,
@@ -23,16 +22,22 @@ import {
   Plus,
   Minus,
   Trash2,
+  Truck,
+  Info,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
 
 const navLinks = [
   { name: "Shop", href: "/shop" },
-  { name: "New Arrivals", href: "/new-arrivals" },
-  { name: "Collections", href: "/collections" },
-  { name: "Sale", href: "/sale" },
+  { name: "Custom Quote", href: "/custom-quote" },
+  { name: "Track Order", href: "/track-order" },
   { name: "About", href: "/about" },
 ];
+
+function formatPeso(amount: number) {
+  return `₱${amount.toLocaleString("en-PH")}`;
+}
 
 export function Header() {
   const {
@@ -47,12 +52,20 @@ export function Header() {
   } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [whiteGlove, setWhiteGlove] = useState(false);
+
+  const whiteGloveFee = 1500;
+  const depositRate = 0.5;
+  const subtotal = totalPrice;
+  const deliveryFee = whiteGlove ? whiteGloveFee : 0;
+  const orderTotal = subtotal + deliveryFee;
+  const depositAmount = orderTotal * depositRate;
 
   return (
     <>
       {/* Announcement Bar */}
       <div className="bg-[#484532] text-[#F5F5F0] text-center py-2 text-xs tracking-[0.2em] uppercase font-medium">
-        Free shipping on orders over $150 — Spring Collection Now Live
+        Handcrafted furniture — 50% deposit to start your order
       </div>
 
       {/* Main Header */}
@@ -70,12 +83,11 @@ export function Header() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#2D3439] uppercase">
-                DRAFT
-              </span>
-              <span className="hidden sm:inline text-2xl lg:text-3xl font-extralight tracking-[0.15em] text-[#8B92AC]">
-                test
-              </span>
+              <img
+                src="/logo.png"
+                alt="RSF The Craftsman"
+                className="h-10 lg:h-12 w-auto"
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -170,7 +182,7 @@ export function Header() {
                                 {item.product.name}
                               </h3>
                               <p className="text-sm text-[#8B92AC] mt-1">
-                                ${item.product.price.toFixed(2)}
+                                {formatPeso(item.product.price)}
                               </p>
                               <div className="flex items-center gap-2 mt-2">
                                 <button
@@ -205,32 +217,75 @@ export function Header() {
                       </div>
 
                       <div className="border-t border-[#B0B597]/30 pt-4 space-y-3">
+                        {/* White-Glove Delivery Option */}
+                        <div className="rounded-md border border-[#B0B597]/30 p-3 space-y-2">
+                          <div className="flex items-center gap-2">
+                            <Truck size={16} className="text-[#484532]" />
+                            <span className="text-xs font-medium tracking-[0.1em] uppercase text-[#2D3439]/80">
+                              Delivery & Assembly
+                            </span>
+                          </div>
+                          <label className="flex items-center justify-between cursor-pointer group">
+                            <div className="flex items-center gap-2">
+                              <input
+                                type="checkbox"
+                                checked={whiteGlove}
+                                onChange={(e) => setWhiteGlove(e.target.checked)}
+                                className="h-4 w-4 rounded border-[#B0B597]/50 text-[#484532] focus:ring-[#484532] accent-[#484532]"
+                              />
+                              <span className="text-sm text-[#2D3439]/70 group-hover:text-[#2D3439] transition-colors">
+                                White-Glove Delivery & Assembly
+                              </span>
+                            </div>
+                            <span className="text-sm text-[#2D3439] font-medium">
+                              {formatPeso(whiteGloveFee)}
+                            </span>
+                          </label>
+                          <p className="text-xs text-[#8B92AC] pl-6">
+                            Professional in-home delivery, assembly & packaging removal
+                          </p>
+                        </div>
+
                         <div className="flex justify-between text-sm">
                           <span className="text-[#2D3439]/60">Subtotal</span>
                           <span className="text-[#2D3439] font-medium">
-                            ${totalPrice.toFixed(2)}
+                            {formatPeso(subtotal)}
                           </span>
                         </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-[#2D3439]/60">Shipping</span>
-                          <span className="text-[#B0B597] font-medium">
-                            {totalPrice >= 150 ? "Free" : "$12.00"}
-                          </span>
-                        </div>
+                        {whiteGlove && (
+                          <div className="flex justify-between text-sm">
+                            <span className="text-[#2D3439]/60">Delivery & Assembly</span>
+                            <span className="text-[#2D3439] font-medium">
+                              {formatPeso(deliveryFee)}
+                            </span>
+                          </div>
+                        )}
                         <Separator className="bg-[#B0B597]/30" />
                         <div className="flex justify-between">
                           <span className="text-[#2D3439] font-medium tracking-wide">
                             Total
                           </span>
                           <span className="text-[#2D3439] font-semibold text-lg">
-                            $
-                            {(
-                              totalPrice + (totalPrice >= 150 ? 0 : 12)
-                            ).toFixed(2)}
+                            {formatPeso(orderTotal)}
                           </span>
                         </div>
+
+                        {/* 50% Deposit Notice */}
+                        <div className="rounded-md bg-[#484532]/5 border border-[#484532]/15 p-3 flex gap-2.5">
+                          <Info size={16} className="text-[#484532] flex-shrink-0 mt-0.5" />
+                          <div>
+                            <p className="text-xs font-medium text-[#484532]">
+                              50% Deposit Required
+                            </p>
+                            <p className="text-xs text-[#2D3439]/60 mt-0.5">
+                              Pay <span className="font-semibold text-[#484532]">{formatPeso(depositAmount)}</span> now to
+                              start your order. Balance due before delivery.
+                            </p>
+                          </div>
+                        </div>
+
                         <Button className="w-full bg-[#484532] hover:bg-[#2D3439] text-[#F5F5F0] tracking-[0.1em] uppercase text-xs py-6 mt-2 transition-all duration-300">
-                          Checkout
+                          Pay Deposit — {formatPeso(depositAmount)}
                         </Button>
                         <button
                           onClick={closeCart}
